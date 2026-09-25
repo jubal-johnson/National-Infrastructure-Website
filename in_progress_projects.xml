@@ -1,0 +1,72 @@
+<NATIONAL_INFRASTRUCTURE_PROJECT_DATABASE>
+
+	<ROW>
+		<Project_Name>Skyline Bridge Repair</Project_Name>
+		<Company_Name>Pioneer Structural Ltd</Company_Name>
+		<Budget>1250000.00</Budget>
+		<Province_Name>British Columbia</Province_Name>
+		<Start_date>2025-01-10</Start_date>
+		<Est_end_date>2026-06-30</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Skyline Bridge Repair</Project_Name>
+		<Company_Name>Great Lakes Power Systems</Company_Name>
+		<Budget>1250000.00</Budget>
+		<Province_Name>British Columbia</Province_Name>
+		<Start_date>2025-01-10</Start_date>
+		<Est_end_date>2026-06-30</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Highway 401 Expansion</Project_Name>
+		<Company_Name>Summit Ridge Construction</Company_Name>
+		<Budget>8500000.00</Budget>
+		<Province_Name>Ontario</Province_Name>
+		<Start_date>2025-07-20</Start_date>
+		<Est_end_date>2027-12-31</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Calgary Tech Hub Construction</Project_Name>
+		<Company_Name>Northern Star Builders</Company_Name>
+		<Budget>3100000.00</Budget>
+		<Province_Name>Alberta</Province_Name>
+		<Start_date>2025-04-15</Start_date>
+		<Est_end_date>2027-08-01</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Edmonton Solar Park</Project_Name>
+		<Company_Name>Okanagan Valley Designs</Company_Name>
+		<Budget>2750000.00</Budget>
+		<Province_Name>Alberta</Province_Name>
+		<Start_date>2025-08-01</Start_date>
+		<Est_end_date>2027-03-15</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Victoria Harbour Dredging</Project_Name>
+		<Company_Name>St. Lawrence Dredging</Company_Name>
+		<Budget>1100000.00</Budget>
+		<Province_Name>British Columbia</Province_Name>
+		<Start_date>2025-05-20</Start_date>
+		<Est_end_date>2026-10-10</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+
+	<ROW>
+		<Project_Name>Toronto Waterfront Expansion</Project_Name>
+		<Company_Name>Pioneer Structural Ltd</Company_Name>
+		<Budget>3200000.00</Budget>
+		<Province_Name>Ontario</Province_Name>
+		<Start_date>2026-03-01</Start_date>
+		<Est_end_date>2027-12-15</Est_end_date>
+		<Status>In-progress</Status>
+	</ROW>
+</NATIONAL_INFRASTRUCTURE_PROJECT_DATABASE>

@@ -1,0 +1,49 @@
+{
+  "NATIONAL INFRASTRUCTURE PROJECT DATABASE": [
+    {
+      "Project_Name": "Green Energy Wind Farm",
+      "Company_Name": "Pacific Rim Engineering",
+      "Budget": 5000000.00,
+      "Province_Name": "Alberta",
+      "Start_date": "2026-05-01",
+      "Est_end_date": "2028-10-01",
+      "Status": "Planned"
+    },
+    {
+      "Project_Name": "Hydro-Québec Substation",
+      "Company_Name": "Maple Leaf Infrastructure",
+      "Budget": 2200000.00,
+      "Province_Name": "Quebec",
+      "Start_date": "2026-02-01",
+      "Est_end_date": "2027-09-15",
+      "Status": "Planned"
+    },
+    {
+      "Project_Name": "Winnipeg Water Treatment Upgrade",
+      "Company_Name": "Prairie Gold Excavation",
+      "Budget": 980000.00,
+      "Province_Name": "Manitoba",
+      "Start_date": "2026-03-01",
+      "Est_end_date": "2027-05-30",
+      "Status": "Planned"
+    },
+    {
+      "Project_Name": "Niagara Tourism Pavilion",
+      "Company_Name": "Pioneer Structural Ltd",
+      "Budget": 600000.00,
+      "Province_Name": "Ontario",
+      "Start_date": "2026-06-01",
+      "Est_end_date": "2027-01-15",
+      "Status": "Planned"
+    },
+    {
+      "Project_Name": "Banff National Park Transit",
+      "Company_Name": "Rocky Mountain Tunnelling",
+      "Budget": 500000.00,
+      "Province_Name": "Alberta",
+      "Start_date": "2026-07-01",
+      "Est_end_date": "2027-04-01",
+      "Status": "Planned"
+    }
+  ]
+}

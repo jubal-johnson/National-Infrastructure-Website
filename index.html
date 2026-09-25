@@ -10,7 +10,7 @@
 
 <!-- ===== HEADER ===== -->
 <header>
-    <img src="ICC_logo.png">
+    <img src="ICC_logo.png" alt="ICC Logo">
     <h1>Infrastructure Council of Canada (ICC)</h1>
     <top_link_bar>
         <a href="#">Home</a>
@@ -53,6 +53,7 @@
     <tbody id="project-body"></tbody>
 </table>
 
+<!-- ===== IN-PROGRESS (XML) ===== -->
 <h2>In-progress Projects (XML)</h2>
 <table id="progress-table">
     <thead>
@@ -68,63 +69,54 @@
     </thead>
     <tbody id="progress-body"></tbody>
 </table>
+
 <script>
 async function loadAllData() {
     const plannedBody = document.getElementById('project-body');
     const progressBody = document.getElementById('progress-body');
 
-    const jsonUrl = "https://gist.githubusercontent.com/jubal-johnson/0bfbc1d3ce41ccd578cbae27748a24aa/raw/Planned%20project.json";
-    const xmlUrl = "https://gist.githubusercontent.com/jubal-johnson/74f4a4440af2bcb5b623ae870e2c39db/raw/In-progress%20project.xml";
+    // Relative paths to files in the same folder
+    const jsonUrl = "./planned_projects.json";
+    const xmlUrl = "./in_progress_projects.xml";
 
+    // ===== 1. JSON FETCH (Planned Projects) =====
     try {
-        // ===== JSON FETCH =====
         const jsonRes = await fetch(jsonUrl);
-        let jsonData = await jsonRes.json();
-
-        console.log("RAW:", jsonData);
-
-        // 🔥 Handle all possible formats
-        if (typeof jsonData === "string") {
-            jsonData = JSON.parse(jsonData);
-        }
-
-        if (jsonData.projects) {
-            jsonData = jsonData.projects;
-        }
-
-        if (jsonData.data) {
-            jsonData = jsonData.data;
-        }
-
-        if (!Array.isArray(jsonData)) {
-            jsonData = Object.values(jsonData);
-        }
-
-        console.log("FINAL:", jsonData);
+        if (!jsonRes.ok) throw new Error(`HTTP error ${jsonRes.status}`);
+        
+        const jsonData = await jsonRes.json();
+        const projects = jsonData["NATIONAL INFRASTRUCTURE PROJECT DATABASE"] || [];
 
         plannedBody.innerHTML = '';
 
-        jsonData.forEach(p => {
+        projects.forEach(p => {
             const row = document.createElement('tr');
 
             row.innerHTML = `
-                <td>${p["Project Name"] || p.Project_Name || "N/A"}</td>
-                <td>${p.Company || "N/A"}</td>
-                <td>$${Number(p["Budget ($)"] || p.Budget || 0).toLocaleString()}</td>
-                <td>${p.Province || "N/A"}</td>
-                <td>${p["Start Date"] || p.Start_Date || "N/A"}</td>
-                <td>${p["Estimated End Date"] || p.Estimated_End_Date || "N/A"}</td>
+                <td>${p.Project_Name || "N/A"}</td>
+                <td>${p.Company_Name || "N/A"}</td>
+                <td>$${Number(p.Budget || 0).toLocaleString()}</td>
+                <td>${p.Province_Name || "N/A"}</td>
+                <td>${p.Start_date || "N/A"}</td>
+                <td>${p.Est_end_date || "N/A"}</td>
                 <td>${p.Status || "N/A"}</td>
             `;
 
             plannedBody.appendChild(row);
         });
+    } catch (error) {
+        console.error("JSON Error:", error);
+        plannedBody.innerHTML = `<tr><td colspan="7" style="color:red;">Failed to load JSON data (${error.message})</td></tr>`;
+    }
 
-        // ===== XML FETCH =====
+    // ===== 2. XML FETCH (In-progress Projects) =====
+    try {
         const xmlRes = await fetch(xmlUrl);
+        if (!xmlRes.ok) throw new Error(`HTTP error ${xmlRes.status}`);
+
         const xmlText = await xmlRes.text();
         const xmlDoc = new DOMParser().parseFromString(xmlText, "text/xml");
-        const xmlProjects = xmlDoc.getElementsByTagName("project");
+        const xmlProjects = xmlDoc.getElementsByTagName("ROW");
 
         progressBody.innerHTML = '';
 
@@ -135,26 +127,23 @@ async function loadAllData() {
 
             row.innerHTML = `
                 <td>${getVal("Project_Name")}</td>
-                <td>${getVal("Company")}</td>
+                <td>${getVal("Company_Name")}</td>
                 <td>$${Number(getVal("Budget") || 0).toLocaleString()}</td>
-                <td>${getVal("Province")}</td>
-                <td>${getVal("Start_Date")}</td>
-                <td>${getVal("Estimated_End_Date")}</td>
+                <td>${getVal("Province_Name")}</td>
+                <td>${getVal("Start_date")}</td>
+                <td>${getVal("Est_end_date")}</td>
                 <td>${getVal("Status")}</td>
             `;
 
             progressBody.appendChild(row);
         });
-
     } catch (error) {
-        console.error("ERROR:", error);
-
-        plannedBody.innerHTML = `<tr><td colspan="7" style="color:red;">
-            Failed to load data
-        </td></tr>`;
+        console.error("XML Error:", error);
+        progressBody.innerHTML = `<tr><td colspan="7" style="color:red;">Failed to load XML data (${error.message})</td></tr>`;
     }
 }
 
+// Initialize on page load
 loadAllData();
 </script>
 </div>
